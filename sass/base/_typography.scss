@@ -1,0 +1,70 @@
+.header-primary{
+    color: $color-white;
+    text-transform: uppercase;
+    margin: auto;
+    margin-bottom: 6rem;
+
+    /* In that case to make bouth elements one on top of other use display block */
+    &-main{
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+
+        /* call function */
+        animation: moveLeft 2s ease-out;
+        /*
+        animation-delay: 3s; 3s to start
+        animation-iteration-count: 3; heppens 3 times
+        */
+    }
+
+    &-sub{
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+
+
+        animation: moveRight 2s ease-out;
+    }
+}
+
+body{
+    font-family: "Lato" , sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 2.5rem;
+}
+
+.header-secondary{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, $color-prim-light, $color-prim-dark);
+    display: inline-block;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    transition: all .2s;
+
+    &:hover{
+        transform: skewY(2deg) skewX(10deg);
+    }
+}
+
+.header-terceiro{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.paragrafo{
+    font-size: 1.6rem;
+
+    &:not(:last-child){
+        margin-bottom: 3rem;
+    }
+}

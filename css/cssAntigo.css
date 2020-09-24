@@ -1,0 +1,223 @@
+
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+
+/* seletor universal */
+*,
+*::after,
+*::before { 
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: "Lato" , sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #777;
+    padding: 2.5rem;
+
+    box-sizing: border-box;
+}
+
+/* Make Header -------------------------------- */
+
+.header{
+    background-size: cover; /* todo elemnto fica dentro da imagem */
+    background-position: top;
+    height: 95vh; /* O elemento sempre vai dter 95% da tela do usuario */
+    background-image: linear-gradient(
+        to left top ,
+        rgba(126, 213, 111, 0.8),
+        rgba(40, 180, 133, 0.8)),
+        url(../img/hero.jpg);
+    
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+}
+
+/* Logo position */
+.logo-box{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.logo{
+    height: 3rem;
+}
+
+/* Make title and animation */
+
+.header-text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* por definiçao o começo do elemento q fica 50% top and left do parent com o transform: translate()
+    faz com q o centro do elemento fique a 50% da top and left */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header-primary{
+    color: #fff;
+    text-transform: uppercase;
+    margin: auto;
+    margin-bottom: 6rem;
+}
+
+/* In that case to make bouth elements one on top of other use display block */
+.header-primary-main{
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    /* call function */
+    animation: moveLeft 2s ease-out;
+    /*
+    animation-delay: 3s; 3s to start
+    animation-iteration-count: 3; heppens 3 times
+    */
+}
+
+.header-primary-sub{
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+
+    animation: moveRight 2s ease-out;
+}
+
+@keyframes moveLeft{
+    /* what happens in the beginning */
+    0% {
+        /* starts invisible and 100rem left from the original position */
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80%{
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+        /* back to original position and opacity */
+    }
+}
+
+@keyframes moveRight{
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+
+    80%{
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+@keyframes moveUp{
+    0%{
+        transform: translateY(8rem);
+        opacity: 0;
+    }
+
+    80%{
+        transform: translateY(-1rem);
+    }
+
+    100%{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+
+/* Button animation
+
+    how to button is a link use :link thats a sudoclass
+    :visited - when user alreadu clicked on button and see butoon again
+    put both link and visited togheter make the botton the same all the time
+    */
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+} 
+
+.btn:hover{
+    transform: translateY(-0.4rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0,0, 0.3);
+}
+
+
+
+.btn:active{
+    transform: translateY(-0.1rem);
+    box-shadow: 0 1rem 1rem rgba(0, 0,0, 0.3);
+}
+
+
+.btn::after{
+    /* um elemento igual o btn so q atras deles */
+    content: ""; /*uso obrigatorio*/
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+.btn:hover::after{
+    transform: scaleX(1.2) scaleY(1.4);  
+    opacity: 0;   
+}
+
+.btn-white{
+    background-color: white;
+    color: #777;
+}
+
+.btn-white::after{
+    background-color:white;
+}
+
+.btn-animation{
+    animation: moveUp 1.5s ease-out .5s;
+    animation-fill-mode: backwards; /*button start inviseble*/
+}
+

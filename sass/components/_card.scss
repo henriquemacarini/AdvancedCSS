@@ -1,0 +1,166 @@
+.card{
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+    
+   
+
+    &-side{
+        font-size: 2rem;
+        height: 50rem;
+        transition: all 1s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden; //hedi teh backface of a conmponent
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        overflow: hidden;
+
+
+        &-front{
+            background-color: $color-white;
+        }
+
+        &-back{
+            transform: rotateY(180deg);
+
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+            &-2{
+                background-image: linear-gradient(to right bottom, $color-prim-light, $color-prim-dark);
+            }
+            &-3{
+                background-image: linear-gradient(to right bottom, $color-terceiro-light, $color-terceiro-dark);
+            }
+        }
+    }
+
+
+    &:hover &-side-front{ //.card:hover then .card-side
+        transform: rotateY(-180deg);
+    }
+    &:hover &-side-back{ //.card:hover then .card-side
+        transform: rotateY(0);
+    }
+
+    //FRONT SIDE STYLE
+    &-img{
+        background-size: cover;
+        height: 23rem;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        
+        &-1{
+            background-image: linear-gradient(
+            to left top ,
+            rgba($color-secondary-light, 0.6),
+            rgba($color-secondary-dark, 0.6)),
+            url(../img/nat-5.jpg);
+        }
+
+        &-2{
+            background-image: linear-gradient(
+            to left top ,
+            rgba($color-prim-light, 0.6),
+            rgba($color-prim-dark, 0.6)),
+            url(../img/nat-6.jpg);
+        }
+
+        &-3{
+            background-image: linear-gradient(
+            to left top ,
+            rgba($color-terceiro-light, 0.6),
+            rgba($color-terceiro-dark, 0.6)),
+            url(../img/nat-7.jpg);
+        }
+    }
+
+    &-header{
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        text-align: right;
+        width: 75%;
+   
+    }
+
+    &-header-span{
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &-1{
+            background-image: linear-gradient(to right bottom,
+                rgba($color-secondary-light, .85),
+                rgba($color-secondary-dark, .85));
+        }
+
+        &-2{
+            background-image: linear-gradient(to right bottom,
+                rgba($color-prim-light, .85),
+                rgba($color-prim-dark, .85));
+        }
+
+        &-3{
+            background-image: linear-gradient(to right bottom,
+                rgba($color-terceiro-light, .85),
+                rgba($color-terceiro-dark, .85));
+        }
+    }
+
+    &-details{
+            
+        padding: 2.5rem;
+        ul{
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li{
+                text-align: center;
+                padding: 1rem;
+                font-size: 1.5rem;
+
+                &:not(:last-child){
+                    border-bottom: $color-grey-light-2 solid 1px;
+                }
+
+            }
+        }
+    }
+
+    //Back side style
+    &-cta{
+        //make the box center in the parent box
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        // all this in top
+
+        text-align: center;
+    }
+
+    &-price{
+        color: $color-white;
+        font-weight: 100;
+        margin-bottom: 5rem;
+
+        &-only{
+            margin-bottom: 2rem;
+        }
+        &-value{
+            font-size: 6rem;
+        }
+    }
+
+}

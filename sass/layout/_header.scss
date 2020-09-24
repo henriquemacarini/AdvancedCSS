@@ -1,0 +1,39 @@
+.header{
+    background-size: cover; /* todo elemnto fica dentro da imagem */
+    background-position: top;
+    height: 95vh; /* O elemento sempre vai dter 95% da tela do usuario */
+    background-image: linear-gradient(
+        to left top ,
+        rgba($color-prim-light, 0.8),
+        rgba($color-prim-dark, 0.8)),
+        url(../img/hero.jpg);
+    
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+
+    /* Logo position */
+    &-logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &-logo{
+        height: 3rem;
+    }
+    
+    /* Make title and animation */
+    
+    &-text-box{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /* por definiçao o começo do elemento q fica 50% top and left do parent com o transform: translate()
+        faz com q o centro do elemento fique a 50% da top and left */
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+}
+

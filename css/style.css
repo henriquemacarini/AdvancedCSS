@@ -1,0 +1,390 @@
+@charset "UTF-8";
+@keyframes moveLeft {
+  /* what happens in the beginning */
+  0% {
+    /* starts invisible and 100rem left from the original position */
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* back to original position and opacity */ } }
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50%); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(8rem);
+    opacity: 0; }
+  80% {
+    transform: translateY(-1rem); }
+  100% {
+    transform: translate(0);
+    opacity: 1; } }
+
+/* seletor universal */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+.header-primary {
+  color: #FFF;
+  text-transform: uppercase;
+  margin: auto;
+  margin-bottom: 6rem;
+  /* In that case to make bouth elements one on top of other use display block */ }
+  .header-primary-main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* call function */
+    animation: moveLeft 2s ease-out;
+    /*
+        animation-delay: 3s; 3s to start
+        animation-iteration-count: 3; heppens 3 times
+        */ }
+  .header-primary-sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveRight 2s ease-out; }
+
+body {
+  font-family: "Lato" , sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 2.5rem; }
+
+.header-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  transition: all .2s; }
+  .header-secondary:hover {
+    transform: skewY(2deg) skewX(10deg); }
+
+.header-terceiro {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 700; }
+
+.paragrafo {
+  font-size: 1.6rem; }
+  .paragrafo:not(:last-child) {
+    margin-bottom: 3rem; }
+
+.center-text {
+  text-align: center; }
+
+.margin-bottom-big {
+  margin-bottom: 8rem; }
+
+.margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.btn:link, .btn:visited {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  font-size: 1.6rem; }
+
+.btn:hover {
+  transform: translateY(-0.4rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); }
+  .btn:hover::after {
+    transform: scaleX(1.2) scaleY(1.4);
+    opacity: 0; }
+
+.btn:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3); }
+
+.btn::after {
+  /* um elemento igual o btn so q atras deles */
+  content: "";
+  /*uso obrigatorio*/
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s; }
+
+.btn-white {
+  background-color: #FFF;
+  color: #777; }
+  .btn-white::after {
+    background-color: #FFF; }
+
+.btn-green {
+  background-color: #55c57a;
+  color: #FFF; }
+  .btn-green::after {
+    background-color: #55c57a; }
+
+.btn-animation {
+  animation: moveUp 1.5s ease-out .5s;
+  animation-fill-mode: backwards;
+  /*button start inviseble*/ }
+
+.btn-text:link, .btn-text:visited {
+  color: #55c57a;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  font-size: 1.6rem;
+  transition: all .2;
+  font-weight: 400; }
+
+.btn-text:hover {
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  border-bottom: none;
+  color: #eee;
+  transform: translateY(-0.4rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
+
+.btn-text:active {
+  transform: translateY(0.1rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
+
+.composition {
+  position: relative; }
+  .composition-photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 1;
+    transition: all .2s;
+    outline-offset: 2rem; }
+    .composition-photo-p1 {
+      left: 0;
+      top: -2rem; }
+    .composition-photo-p2 {
+      right: 0;
+      top: 2rem; }
+    .composition-photo-p3 {
+      left: 20%;
+      top: 12rem; }
+    .composition-photo:hover {
+      outline: 1.5rem solid #55c57a;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 3.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 2; }
+  .composition:hover .composition-photo:not(:hover) {
+    transform: scale(0.95); }
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 2.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all .2s; }
+  .feature-box-icon {
+    font-size: 6rem;
+    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: .5rem; }
+  .feature-box:hover {
+    transform: translateY(-1rem) scale(1.05); }
+
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem; }
+  .card-side {
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 1s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    overflow: hidden; }
+    .card-side-front {
+      background-color: #FFF; }
+    .card-side-back {
+      transform: rotateY(180deg); }
+      .card-side-back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      .card-side-back-2 {
+        background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+      .card-side-back-3 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
+  .card:hover .card-side-front {
+    transform: rotateY(-180deg); }
+  .card:hover .card-side-back {
+    transform: rotateY(0); }
+  .card-img {
+    background-size: cover;
+    height: 23rem;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card-img-1 {
+      background-image: linear-gradient(to left top, rgba(255, 185, 0, 0.6), rgba(255, 119, 48, 0.6)), url(../img/nat-5.jpg); }
+    .card-img-2 {
+      background-image: linear-gradient(to left top, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url(../img/nat-6.jpg); }
+    .card-img-3 {
+      background-image: linear-gradient(to left top, rgba(41, 152, 255, 0.6), rgba(86, 67, 250, 0.6)), url(../img/nat-7.jpg); }
+  .card-header {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #FFF;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    text-align: right;
+    width: 75%; }
+  .card-header-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    .card-header-span-1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)); }
+    .card-header-span-2 {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)); }
+    .card-header-span-3 {
+      background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85)); }
+  .card-details {
+    padding: 2.5rem; }
+    .card-details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card-details ul li {
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.5rem; }
+        .card-details ul li:not(:last-child) {
+          border-bottom: #ebebeb solid 1px; }
+  .card-cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-align: center; }
+  .card-price {
+    color: #FFF;
+    font-weight: 100;
+    margin-bottom: 5rem; }
+    .card-price-only {
+      margin-bottom: 2rem; }
+    .card-price-value {
+      font-size: 6rem; }
+
+.header {
+  background-size: cover;
+  /* todo elemnto fica dentro da imagem */
+  background-position: top;
+  height: 95vh;
+  /* O elemento sempre vai dter 95% da tela do usuario */
+  background-image: linear-gradient(to left top, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+  /* Logo position */
+  /* Make title and animation */ }
+  .header-logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header-logo {
+    height: 3rem; }
+  .header-text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* por definiçao o começo do elemento q fica 50% top and left do parent com o transform: translate()
+        faz com q o centro do elemento fique a 50% da top and left */
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 10rem; }
+  .row::after {
+    content: '';
+    clear: both;
+    display: table; }
+  .row [class^='col-'] {
+    float: left; }
+    .row [class^='col-']:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem)/2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2*6rem)/3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2*6rem)/3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3*6rem)/4); }
+  .row .col-2-of-4 {
+    width: calc((100% - 3*6rem)/2 + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3*6rem) /4) + 2 * 6rem); }
+
+.section-about {
+  background-color: #f1f1f1;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
+.section-features {
+  background-size: cover;
+  padding: 20rem 0;
+  background-image: linear-gradient(to left top, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/nat-4.jpg);
+  transform: skewY(-7deg);
+  margin-top: -10rem; }
+  .section-features > * {
+    transform: skewY(7deg); }
+
+.section-tours {
+  background-color: #f1f1f1;
+  padding: 25rem 0 10rem;
+  margin-top: -11rem; }
