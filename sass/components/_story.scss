@@ -1,0 +1,64 @@
+.story{
+    background-color: rgba($color-white, .7);
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: 1.6rem;
+    transform: skewx(-12deg);
+    
+    //select the direct child elemen - in this case is row
+    & > *{
+        transform: skewx(12deg);
+    }
+
+    &-shape{
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%); //pO elemeento tem q ter um width e height definido como tambem o float
+        shape-outside: circle(50% at 50% 50%); //primeiro o raio
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translate(-3rem) skewx(12deg); // para mexer algo no float é melhor usar transform
+        position: relative;
+    }
+
+    &-img{
+        height: 100%;
+        transform: translate(-10%, 0);
+        transform: scale(1.2);
+        transition: transform .5s;
+    }
+
+    &-text{
+        transform: skewx(12deg);
+    }
+
+    &-caption{
+        position: absolute; 
+        // colocar o objeto no meio quando usar position absolute
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0);// acaba aq
+        text-align: center;
+        color: $color-white;
+        text-transform: uppercase;
+        opacity: 0;
+        transition: all .5s;
+
+    }
+
+    &:hover &-caption{
+        transform: translate(-50%, -50%);// acaba aq
+        opacity: 1;
+    }
+
+    &:hover &-img{
+        transform: scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+
+}
