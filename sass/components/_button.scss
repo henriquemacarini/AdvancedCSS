@@ -1,6 +1,6 @@
 
 .btn{
-
+    &,
     &:link,
     &:visited {
         display: inline-block;
@@ -11,6 +11,10 @@
         transition: all .2s;
         position: relative;
         font-size: 1.6rem;
+
+        // change defoult button element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover{
@@ -23,7 +27,9 @@
         }
     }
     
+    &:focus,
     &:active{
+        outline: none;
         transform: translateY(-0.1rem);
         box-shadow: 0 1rem 1rem rgba($color-black, 0.3);
     }
